@@ -1,0 +1,220 @@
+/* Geral */
+
+:root {
+  --background-color: #fff;
+  --text-color: #202124;
+  --input-background: #f1f3f4;
+  --note-background: #fbbc04;
+  --note-border-color: #fbbc04;
+}
+
+.dark-theme {
+  --background-color: #202124;
+  --text-color: #e0e0e0;
+  --input-background: #525356;
+  --note-background: #333;
+  --note-border-color: #444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+
+/* Cabeçalho */
+header {
+  border-bottom: 1px solid #e0e0e0; 
+  padding: 1rem 2rem;
+  color: #202124; 
+  background-color: var(--input-background);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#search-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#search-input {
+  background-color: var(--input-background);
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  font-weight: bold;
+  color: var(--text-color);
+  width: 400px;
+}
+
+#search-input::placeholder {
+  color: #9e9e9e; 
+}
+
+#export-notes {
+  background-color: #fbbc04;
+  border: none;
+  border-radius: 4px;
+  color: #202124;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+#export-notes:hover {
+  background-color: #f1f3f4; 
+  color: #202124;
+}
+
+/* Form de nova nota */
+#add-note-container {
+  display: flex;
+  width: 400px;
+  margin: 1rem auto 0;
+  gap: 1rem;
+}
+
+#add-note-container input,
+#add-note-container button {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#add-note-container input {
+  flex: 1;
+  background-color: transparent;
+  border: 1px solid #525356;
+  color: var(--text-color);
+}
+
+#add-note-container button {
+  cursor: pointer;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Notas */
+#notes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.note {
+  min-height: 200px;
+  padding: 1rem;
+  border: 1px solid #fbbc04; 
+  background-color: #fbbc04; 
+  border-radius: 10px;
+  color: var(--text-color);
+  position: relative;
+}
+
+.note textarea {
+  background-color: transparent;
+  resize: none;
+  color: var(--text-color);
+  border: none;
+  height: 100%;
+  outline: none;
+}
+
+.note .bi-pin {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color: #333;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.note:hover > i {
+  opacity: 1;
+}
+
+.note .bi-x-lg,
+.note .bi-file-earmark-plus {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 5px;
+  color: var(--text-color);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.note .bi-file-earmark-plus {
+  top: 40px;
+}
+
+.note .bi-x-lg:hover,
+.note .bi-file-earmark-plus:hover {
+  color: var(--text-color);
+}
+
+.note.fixed {
+  background-color: #3c3c3f;
+}
+
+/* Estilo do switch (toggle) */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.3s;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #fbbc04; /* Amarelo para indicar o modo ativo (escuro) */
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
