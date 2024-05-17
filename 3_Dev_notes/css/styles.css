@@ -116,7 +116,7 @@ header {
   border: 1px solid #fbbc04; 
   background-color: #fbbc04; 
   border-radius: 10px;
-  color: var(--text-color);
+  color: #fff;
   position: relative;
 }
 
